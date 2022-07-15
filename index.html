@@ -51,10 +51,12 @@
     }
 
     update(deltaTime) {
-      // console.log(deltaTime);
+       console.log(deltaTime);
       if (!deltaTime) return;
 
       this.position.x += 5 / deltaTime;  // 5 pixcels per sec
+      // this.position.x += 1; 
+
     }
   }
 
@@ -79,7 +81,9 @@
     paddle.update(deltaTime);
     paddle.draw(ctx);
 
-    requestAnimationFrame(gameLoop);
+    if (paddle.position.x < 450) {
+      requestAnimationFrame(gameLoop);
+    }
   }
 
   gameLoop();
