@@ -51,7 +51,7 @@
     }
 
     update(deltaTime) {
-       console.log(deltaTime);
+      //  console.log(deltaTime);
       if (!deltaTime) return;
 
       this.position.x += 5 / deltaTime;  // 5 pixcels per sec
@@ -61,10 +61,32 @@
   }
 
   
-  
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  // 3. Handling Keybord Input
+  ///////////////////////////////////////////////////////////////////////////////////////////////////
+  class InputHandler {
+    constructor() {
+      document.addEventListener('keydown', (event) => {
+        alert(event.keyCode);
+        switch(event.keyCode) {
+          case 37:
+            alert('move left');
+            break;
+          case 39:
+            alert('move right');
+            break;
+
+        }
+      });
+    }
+  }
+
   let paddle = new Paddle(GME_WIDTH, GAME_HEIGHT);
+
+  new InputHandler();
   
   paddle.draw(ctx);
+
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,6 +109,10 @@
   }
 
   gameLoop();
+
+
+
+
 </script>   
 </body>
 </html>
